@@ -1,6 +1,7 @@
 package com.example.mybroadcastreceiverapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
@@ -39,35 +40,37 @@ public static TextView textView;
 //        textView.setText(receivedMessageFromAnotherApp);
 //        Toast.makeText(this, "Received Message "+receivedMessageFromAnotherApp, Toast.LENGTH_SHORT).show();
 
-        Intent intent=new Intent(this,MyService.class);
-        startService(intent);
+//        Intent intent=new Intent(this,MyService.class);
+//        startService(intent);
+//        ContextCompat.startForegroundService(this,intent);
+
 
 //        Log.d("createdService"," static string :"+receivedMessageFromAnotherApp);
         Log.d("createdService"," sp string :"+getSharedPreferences("myBroadcastReceiverApp", MODE_PRIVATE).getString("ReceivedMessage","Received No Message"));
 textView.setText(getSharedPreferences("myBroadcastReceiverApp", MODE_PRIVATE).getString("ReceivedMessage","Received No Message"));
 //        Log.d("createdService","Service starting");
 
-        Button senderActivity,receiverActivity;
+//        Button senderActivity,receiverActivity;
 
 
-
-        senderActivity=findViewById(R.id.gotoSenderActivity);
-        receiverActivity=findViewById(R.id.goToReceiverActivity);
-
-        senderActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,SenderActivity.class);
-                startActivity(intent);
-            }
-        });
-        receiverActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,ReceiverActivity.class);
-                startActivity(intent);
-            }
-        });
+//
+//        senderActivity=findViewById(R.id.gotoSenderActivity);
+//        receiverActivity=findViewById(R.id.goToReceiverActivity);
+//
+//        senderActivity.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(MainActivity.this,SenderActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        receiverActivity.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(MainActivity.this,ReceiverActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
     }
@@ -77,9 +80,8 @@ textView.setText(getSharedPreferences("myBroadcastReceiverApp", MODE_PRIVATE).ge
     protected void onStop() {
         super.onStop();
 
-        Intent intent=new Intent(this,MyService.class);
-
-        startService(intent);
+//        Intent intent=new Intent(this,MyService.class);
+//        startService(intent);
 
     }
 
@@ -87,8 +89,8 @@ textView.setText(getSharedPreferences("myBroadcastReceiverApp", MODE_PRIVATE).ge
     protected void onDestroy() {
 
         super.onDestroy();
-
-        Intent intent=new Intent(this,MyService.class);
-        startService(intent);
+//
+//        Intent intent=new Intent(this,MyService.class);
+//        startService(intent);
     }
 }
