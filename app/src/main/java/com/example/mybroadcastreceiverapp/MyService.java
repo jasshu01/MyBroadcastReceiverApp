@@ -37,26 +37,6 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-//        super.onStartCommand(intent, flags, startId);
-
-//        Intent intent1=new Intent(getBaseContext(),MainActivity.class);
-//        intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(intent1);
-
-
-//        Log.d("NEWSTACK", "Service onstart");
-
-//        if (intent.getAction() != null)
-//        Log.d("NEWSTACK", "actions = " + intent.getAction());
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            startForegroundService(intent);
-//        }
-
-
-//        registerMyReceiver();
-
-
 
         return START_STICKY;
     }
@@ -64,35 +44,9 @@ public class MyService extends Service {
 
     @Override
     public void onCreate() {
-//        Log.d("createdService", "Service Created");
-//
-
         Log.d("NEWSTACK", "Service create");
-//        myReceiver = new MyReceiver();
-//
-//        IntentFilter filter = new IntentFilter("com.jasshugarg.ultimateappsender");
-//        registerReceiver(myReceiver, filter);
-//        Log.d("NEWSTACK", "Receiver registered");
-
-//        String CHANNEL_ID = "my_channel_01";
-//        NotificationChannel channel = null;
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            channel = new NotificationChannel(CHANNEL_ID,
-//                    "Channel human readable title",
-//                    NotificationManager.IMPORTANCE_DEFAULT);
-//            ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).createNotificationChannel(channel);
-//        }
-
-
-//        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-//                .setContentTitle("")
-//                .setContentText("").build();
-//
-//        startForeground(1, notification);
-
-
         registerMyReceiver();
-//        registerMyReceiver();
+
     }
 
 
@@ -101,8 +55,6 @@ public class MyService extends Service {
 
         unregisterReceiver(myReceiver);
         super.onDestroy();
-        Log.d("createdService", "app closed");
-
         Log.d("NEWSTACK", "Service destroy");
     }
 
@@ -116,8 +68,6 @@ public class MyService extends Service {
             public void onReceive(Context context, Intent intent) {
                 String receivedMessage = intent.getStringExtra("Broadcast Message");
                 Log.d("NEWSTACK", intent.getAction() + " message " + receivedMessage);
-//                MainActivity.textView.setText(receivedMessage);
-//                MainActivity.receivedMessageFromAnotherApp = receivedMessage;
 
                 if (MainActivity.textView != null) {
                     MainActivity.textView.setText(receivedMessage);
@@ -129,8 +79,8 @@ public class MyService extends Service {
                 ed.apply();
 
                 Intent intent1 = new Intent(context, MyService.class);
-        context.startService(intent1);
-//                ContextCompat.startForegroundService(context, intent1);
+                context.startService(intent1);
+
 
             }
         };

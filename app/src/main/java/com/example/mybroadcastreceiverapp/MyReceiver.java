@@ -29,22 +29,6 @@ public class MyReceiver extends BroadcastReceiver {
         String receivedMessage = intent.getStringExtra("Broadcast Message");
         Log.d("createdService", "message " + receivedMessage);
         Log.d("NEWSTACK", intent.getAction() + " message " + receivedMessage);
-////                MainActivity.textView.setText(receivedMessage);
-////                MainActivity.receivedMessageFromAnotherApp = receivedMessage;
-//
-//        if (MainActivity.textView != null) {
-//            MainActivity.textView.setText(receivedMessage);
-//        }
-////
-//        SharedPreferences sp =  context.getSharedPreferences("myBroadcastReceiverApp", MODE_PRIVATE);
-//        SharedPreferences.Editor ed = sp.edit();
-//        ed.putString("ReceivedMessage", receivedMessage);
-//        ed.apply();
-//
-//
-//        Intent intent1=new Intent(context,MyService.class);
-//        context.startService(intent1);
-//        ContextCompat.startForegroundService( context,intent1);
 
 
     }

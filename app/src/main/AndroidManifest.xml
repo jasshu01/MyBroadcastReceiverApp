@@ -45,35 +45,35 @@
         </service>
 
 
-        <!--        <activity-->
-        <!--            android:name=".ReceiverActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:parentActivityName=".MainActivity">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.MAIN" />-->
-        <!--                <action android:name="com.jasshugarg.myinnerappbroadcast" />-->
+                <activity
+                    android:name=".ReceiverActivity"
+                    android:exported="true"
+                    android:parentActivityName=".MainActivity">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+                        <action android:name="com.jasshugarg.myinnerappbroadcast" />
 
-        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-        <!--            </intent-filter>-->
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
 
-        <!--            <meta-data-->
-        <!--                android:name="android.app.lib_name"-->
-        <!--                android:value="" />-->
-        <!--        </activity>-->
-        <!--        <activity-->
-        <!--            android:name=".SenderActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:parentActivityName=".MainActivity">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.MAIN" />-->
+                    <meta-data
+                        android:name="android.app.lib_name"
+                        android:value="" />
+                </activity>
+                <activity
+                    android:name=".SenderActivity"
+                    android:exported="true"
+                    android:parentActivityName=".MainActivity">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
 
-        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-        <!--            </intent-filter>-->
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
 
-        <!--            <meta-data-->
-        <!--                android:name="android.app.lib_name"-->
-        <!--                android:value="" />-->
-        <!--        </activity>-->
+                    <meta-data
+                        android:name="android.app.lib_name"
+                        android:value="" />
+                </activity>
 
         <receiver
             android:name=".MyReceiver"
