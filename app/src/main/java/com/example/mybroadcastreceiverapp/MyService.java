@@ -47,13 +47,17 @@ public class MyService extends Service {
 //        Log.d("NEWSTACK", "Service onstart");
 
 //        if (intent.getAction() != null)
-            Log.d("NEWSTACK", "actions = " + intent.getAction());
+//        Log.d("NEWSTACK", "actions = " + intent.getAction());
 //
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 //            startForegroundService(intent);
 //        }
 
+
 //        registerMyReceiver();
+
+
+
         return START_STICKY;
     }
 
@@ -62,7 +66,13 @@ public class MyService extends Service {
     public void onCreate() {
 //        Log.d("createdService", "Service Created");
 //
+
         Log.d("NEWSTACK", "Service create");
+//        myReceiver = new MyReceiver();
+//
+//        IntentFilter filter = new IntentFilter("com.jasshugarg.ultimateappsender");
+//        registerReceiver(myReceiver, filter);
+//        Log.d("NEWSTACK", "Receiver registered");
 
 //        String CHANNEL_ID = "my_channel_01";
 //        NotificationChannel channel = null;
@@ -80,13 +90,8 @@ public class MyService extends Service {
 //
 //        startForeground(1, notification);
 
-        myReceiver = new MyReceiver();
 
-        IntentFilter filter = new IntentFilter("com.jasshugarg.ultimateappsender");
-        registerReceiver(myReceiver, filter);
-
-
-//        registerMyReceiver();
+        registerMyReceiver();
 //        registerMyReceiver();
     }
 
@@ -100,41 +105,41 @@ public class MyService extends Service {
 
         Log.d("NEWSTACK", "Service destroy");
     }
-//
-//    private void registerMyReceiver() {
-//
-//
-//        Log.d("NEWSTACK", "Available for receiving");
-//
-//        BroadcastReceiver myReceiver = new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//                String receivedMessage = intent.getStringExtra("Broadcast Message");
-//                Log.d("NEWSTACK", intent.getAction() + " message " + receivedMessage);
-////                MainActivity.textView.setText(receivedMessage);
-////                MainActivity.receivedMessageFromAnotherApp = receivedMessage;
-//
-//                if (MainActivity.textView != null) {
-//                    MainActivity.textView.setText(receivedMessage);
-//                }
-//
-//                SharedPreferences sp = getSharedPreferences("myBroadcastReceiverApp", MODE_PRIVATE);
-//                SharedPreferences.Editor ed = sp.edit();
-//                ed.putString("ReceivedMessage", receivedMessage);
-//                ed.apply();
-//
-//                Intent intent1 = new Intent(context, MyService.class);
-//        context.startService(intent1);
-////                ContextCompat.startForegroundService(context, intent1);
-//
-//            }
-//        };
-//
-//
-//        IntentFilter filter = new IntentFilter("com.jasshugarg.ultimateappsender");
-//        registerReceiver(myReceiver, filter);
-//
-//
-//    }
+
+    private void registerMyReceiver() {
+
+
+        Log.d("NEWSTACK", "Available for receiving");
+
+        BroadcastReceiver myReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String receivedMessage = intent.getStringExtra("Broadcast Message");
+                Log.d("NEWSTACK", intent.getAction() + " message " + receivedMessage);
+//                MainActivity.textView.setText(receivedMessage);
+//                MainActivity.receivedMessageFromAnotherApp = receivedMessage;
+
+                if (MainActivity.textView != null) {
+                    MainActivity.textView.setText(receivedMessage);
+                }
+
+                SharedPreferences sp = getSharedPreferences("myBroadcastReceiverApp", MODE_PRIVATE);
+                SharedPreferences.Editor ed = sp.edit();
+                ed.putString("ReceivedMessage", receivedMessage);
+                ed.apply();
+
+                Intent intent1 = new Intent(context, MyService.class);
+        context.startService(intent1);
+//                ContextCompat.startForegroundService(context, intent1);
+
+            }
+        };
+
+
+        IntentFilter filter = new IntentFilter("com.jasshugarg.ultimateappsender");
+        registerReceiver(myReceiver, filter);
+
+
+    }
 
 }

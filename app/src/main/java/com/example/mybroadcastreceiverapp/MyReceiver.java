@@ -25,10 +25,10 @@ public class MyReceiver extends BroadcastReceiver {
 
         Log.d("NEWSTACK","action=> "+intent.getAction());
 
-//
-//        String receivedMessage = intent.getStringExtra("Broadcast Message");
-//        Log.d("createdService", "message " + receivedMessage);
-//        Log.d("NEWSTACK", intent.getAction() + " message " + receivedMessage);
+
+        String receivedMessage = intent.getStringExtra("Broadcast Message");
+        Log.d("createdService", "message " + receivedMessage);
+        Log.d("NEWSTACK", intent.getAction() + " message " + receivedMessage);
 ////                MainActivity.textView.setText(receivedMessage);
 ////                MainActivity.receivedMessageFromAnotherApp = receivedMessage;
 //

@@ -76,21 +76,4 @@ textView.setText(getSharedPreferences("myBroadcastReceiverApp", MODE_PRIVATE).ge
     }
 
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-//        Intent intent=new Intent(this,MyService.class);
-//        startService(intent);
-
-    }
-
-    @Override
-    protected void onDestroy() {
-
-        super.onDestroy();
-//
-//        Intent intent=new Intent(this,MyService.class);
-//        startService(intent);
-    }
 }
